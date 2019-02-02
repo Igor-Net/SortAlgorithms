@@ -39,6 +39,7 @@ namespace SortAlgorithms.API.Controllers
 
             var newUser = new User {
                 Username = userForRegisterDto.Username,
+                Email = userForRegisterDto.Email
             };
 
             var createdUser = await _repository.Register(newUser, userForRegisterDto.Password);
