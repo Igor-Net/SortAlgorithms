@@ -1,14 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-      <a class="navbar-brand" href="#">SortIt</a>
+     
+      <a class="navbar-brand" [routerLink]="['/home']"> <i class="ml-2 fas fa-calculator"></i> SortIt</a>
 
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/algorithms']">Algorithms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sorting</a>
+          <a class="nav-link" [routerLink]="['/sort']" routerLinkActive="router-link-active" >Sorting</a>
         </li>
       </ul>
   
