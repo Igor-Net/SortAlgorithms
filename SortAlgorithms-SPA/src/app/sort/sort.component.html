@@ -1,3 +1,118 @@
-<p>
-  sort works!
-</p>
+<main role="main">
+
+  <section class="jumbotron text-center">
+
+    <div class="container">
+
+      <div>
+        <h4 >You can sort some information using this page</h4>
+      </div>
+      <div>
+        <p style="color: forestgreen"><i class="fas fa-info-circle"></i>
+          Use the textarea below to type data manually or upload from file (switch button)</p>
+      </div>
+
+      <div class="jumboron text-right">
+        <p class="mr-3">Switch input mode <i class="fas fa-hand-point-down"></i></p>
+        <div class="mr-3">
+          <ui-switch [(ngModel)]="inputMode" labelOff="File" defaultBgColor="#343a40"></ui-switch>
+        </div>
+
+      </div>
+
+      <div *ngIf="inputMode" class="row justify-content-center">
+        <div class="col-10">
+          <form #fileForm="ngForm">
+            <div class="form-group text-left">
+            <h5><label class="text-left ml-4">Data to sort:</label></h5>
+            <file-upload [control]="fileUploadControl"></file-upload>
+          </div>
+          </form>
+          <div class="p-3 mb-2 bg-danger text-white" *ngIf="fileUploadControl.invalid">
+            <p>Error with uploading file, file format must be .txt, .json, .doc</p>
+          </div>
+          <div class="row">
+              <div class="col ml-5">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text bg-dark text-white" for="valuetype">Value Type</label>
+                      </div>
+                  <select class="custom-select " id="valuetype" >
+                      <option selected value="auto">auto</option>
+                      <option value="integer">integer</option>
+                      <option value="float">float</option>
+                      <option value="string">string</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                  <div class="custom-control custom-checkbox pt-2">
+                      <input type="checkbox" class="custom-control-input" id="historycheck">
+                      <label class="custom-control-label" for="historycheck">Save to my history</label>
+                    </div>
+              </div>
+              <div class="col">
+                  <div class="custom-control custom-checkbox pt-2">
+                      <input type="checkbox" class="custom-control-input" id="autodownload">
+                      <label class="custom-control-label" for="autodownload">Start auto downloading</label>
+                    </div>
+              </div>
+            </div >
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="!inputMode"class="row justify-content-center">
+
+      <div class="col-8">
+        <form #fileForm="ngForm">
+          <div class="form-group text-left" >
+            <h5><label class="ml-4">Data to sort:</label></h5>
+            <textarea name="inputValues" placeholder="Input data to sort (splitting by spaces, commas)..." rows="8" class="form-control"></textarea>
+          </div>
+          <div class="row">
+              <div class="col ml-5">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text bg-dark text-white" for="valuetype">Value Type</label>
+                      </div>
+                  <select class="custom-select " id="valuetype" >
+                      <option selected value="auto">auto</option>
+                      <option value="integer">integer</option>
+                      <option value="float">float</option>
+                      <option value="string">string</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                  <div class="custom-control custom-checkbox pt-2">
+                      <input type="checkbox" class="custom-control-input" id="customCheck">
+                      <label class="custom-control-label" for="customCheck">Save to file</label>
+                    </div>
+              </div>
+              <div class="col text-right mr-5">
+                  <button type="button" class="btn btn-outline-dark mr-3">Copy</button>
+                  <button type="button" class="btn btn-outline-dark">Clear</button>
+              </div>
+            </div >
+            
+              
+          
+        </form>
+      </div>
+    </div>
+    <div class="col-5 d-block mx-auto">
+      <div class="text-center mt-5">
+        <button class="btn btn-lg btn-dark btn-block " type="button" >Sort</button>
+       </div>
+     </div>
+  </section>
+
+
+
+</main>
