@@ -19,7 +19,7 @@ import { SortComponent } from './sort/sort.component';
 import { appRoutes } from './routes';
 import { AlgorithmsComponent } from './algorithms/algorithms.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { UiSwitchModule } from 'ngx-toggle-switch';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 
 export function tokenGetter() {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FileUploadControl } from '@iplab/ngx-file-upload';
 import { FileUploadValidators } from '@iplab/ngx-file-upload';
 
+
 @Component({
   selector: 'app-sort',
   templateUrl: './sort.component.html',
@@ -10,7 +11,8 @@ import { FileUploadValidators } from '@iplab/ngx-file-upload';
 })
 export class SortComponent implements OnInit {
   isDisabled: boolean = false;
-  inputMode: boolean;
+  inputMode: boolean = false;
+  
 
   public fileUploadControl = new FileUploadControl([FileUploadValidators.accept([".txt", ".json", ".doc"]),
                 FileUploadValidators.filesLimit(1)]);
@@ -18,6 +20,10 @@ export class SortComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  checkValue() {
+    this.inputMode = !this.inputMode;
   }
 
   getError(): Array<string> {
